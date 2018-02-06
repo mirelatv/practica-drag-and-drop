@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div id="div1" class="styleCont" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<img id="drag1" src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png"  draggable ="true"ondragstar="drag(event)"alt="">
+
+<script>
+//ondragover :funcion 1 previniendo el comportamiento de arrastar un elemento que  no es una  caracteristica comun
+  function allowDrop(ev){ ev.preventDefault();
+}
+
+// ondragstar:function 2 obteniendo o arrastrando el elemento 
+function drag(ev){
+    
+    ev.dataTransfer.setData('text',ev.target.id);
+    debugger
+}
+
+//ondrop:fucntion 3 soltando el elemento
+
+function drop(ev){
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData('text');
+    debugger
+    ev.target.appendChild(document.getElementById(data));
+
+}
+
+</script>
+</body>
+</html>
